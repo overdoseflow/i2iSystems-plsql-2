@@ -1,13 +1,13 @@
-create or replace procedure deneme
+PROCEDURE deneme
 (
 d_name IN VARCHAR2,
-d_university out varchar2
+d_university OUT varchar2
 )
 IS
 BEGIN
-select university INTO d_university from internship
-where name=d_name;
-end;
+SELECT university INTO d_university FROM internship
+WHERE name=d_name;
+END;
 /
 SET SERVEROUTPUT ON;
 DECLARE
@@ -16,4 +16,4 @@ d_university varchar2(60);
 BEGIN
 deneme(d_name, d_university);
 dbms_output.put_line('University is:'||d_university);
-end;
+END;
