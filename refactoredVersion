@@ -1,0 +1,19 @@
+CREATE OR REPLACE PROCEDURE get_university 
+(
+pis_name IN VARCHAR2,
+pis_university OUT VARCHAR2
+)
+IS
+BEGIN
+SELECT university INTO pis_university FROM internship
+WHERE pis_name=name;
+END;
+/
+SET SERVEROUTPUT ON;
+DECLARE
+pis_name varchar2(20):='Aysegul';
+pis_university varchar2(60);
+BEGIN
+get_university(pis_name, pis_university);
+DBMS_OUTPUT.PUT_LINE('University is:'||pis_university);
+END;
